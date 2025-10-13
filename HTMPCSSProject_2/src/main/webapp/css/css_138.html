@@ -1,0 +1,47 @@
+<!-- 
+	태그 > 태그 => 자손 선택자
+		
+			div
+			---
+		     |
+	----------------------
+	|	   |	  |		 |
+	h1	  h1     h1      ul
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div >ul > li:nth-child(1) , div >ul > li:nth-child(2) {
+	color:green
+
+} 
+div>ul>li>ul>li {
+	color :red
+}
+</style>
+</head>
+<body>
+<div>
+	<p>교육 과정</p>
+	<h1>Java</h1>
+	<h1>Oracle</h1>
+	<ul>
+		<li>HTML/CSS</li>
+		<li>JavaScript</li>
+		<li>
+			<ul>
+				<!-- 
+					CDN / Component
+				 -->
+				<li>VueJS</li> <!-- blue -->
+				<li>Vuex</li> <!-- blue -->
+				<li>Pinia</li> <!-- blue -->
+			</ul>
+		</li>
+	</ul>
+</div>
+</body>
+</html>

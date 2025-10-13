@@ -1,0 +1,161 @@
+<!-- 
+		배경 속성 / 글자 속성 => 사이트 제작 가장 많이 사용되는 CSS
+		-----------------
+		배경 속성
+			background-color : 배경색 지정
+			background-image : 배경에 이미지 첨부
+			background-repeat : 이미지 반복 여부
+								타일
+			background-position : 배경 이미지 위치
+			***background-size : 배경 이미지 크기
+			background-attachment : 배경 고정 여부
+			background-clip : 배경 적용 영역
+			background-origin : 배경이미지 시작 기준
+			***background : 단축 속성
+			
+			=> margin : top right bottom left
+			   padding : top right bottom left
+			   ---------------------------------- 순서 변경(X)
+			   border : width style color
+			   background : image size repeat ...
+			   ---------------------------------- 순서 변경(O)
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	font-family : Arial , sans-serif;
+	margin: 20px;
+}
+h2 {
+	margin-top:40px;
+	border-bottom: 2px solid #333;
+	padding-bottom: 5px;
+}
+.box {
+	width:400px;
+	height:250px;
+	margin:15px;
+	padding: 10px;
+	border:2px solid gray;
+	display:inline-block;
+	vertical-align: top;
+	font-size:14px;
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+	<h1>배경 속성 예제</h1>
+	<h2>1. background-color</h2>
+	<!-- 
+		color 설정
+		 = 시스템에 등록된 color 설정 : red / lightgreen ...
+		 = 16진법 : #FF00FF => HTML 색상표
+		 = rgb(255,255,255)
+		
+	  CSS 적용
+	  -------
+	  1. 파일내에 적용 (한 파일만 적용)
+	  	<head>
+	  		<style type="text/css">
+	  		선택자 {
+	  			속성:값;
+	  			...
+	  		}
+	  		</stle>
+	  	</head>
+	  2. CSS 파일을 만들어서 필요한 곳에 사용(재사용)
+	     = 공통으로 사용되는 CSS가 있는 경우
+	     = 확장자 .css
+	     <head>
+	     	<link rel="stylesheet" href="파일/URL">
+	     </head>
+	  3. 태그 한개에만 적용 : 인라인 CSS
+	    <태그 style="">
+	    *** 모든 태그에 공통 속성 : style , id , class , title
+	    			title : 풍선도움말
+	    *** 외부 CSS / 내부 CSS < 인라인 CSS
+	 -->
+	 <div class="box" style="background-color: lightblue">lightblue</div>
+	 <div class="box" style="background-color: lightgreen">lightgreen</div>
+	 <div class="box" style="background-color: lightyellow">lightyellow</div>
+	 
+	 <h2>background-image:url('mm1.jpg')</h2>
+	 <div class="box" style="background-image:url('mm1.jpg')"></div>
+	 
+	 <h2>background-repeat: 반복여부</h2>
+	 <div class="box" style="background:url('back.png') repeat">repeat(반복O)</div>
+	 <div class="box" style="background:url('back.png') no-repeat">no-repeat(반복X)</div>
+	 <div class="box" style="background:url('back.png') repeat-x">repeat-x(가로반복)</div>
+	 <div class="box" style="background:url('back.png') repeat-y">repeat-y(세로반복)</div>
+	 
+	 <h2>background-position: 이미지 출력 위치 </h2>
+	 <div class="box" style="background:url('back.png') no-repeat left top">left / top</div>
+	 <div class="box" style="background:url('back.png') no-repeat center">center</div>
+	 <div class="box" style="background:url('back.png') no-repeat bottom">bottom</div>
+	 
+	 <h2>background-size:크기</h2>
+	 <div class="box" style="background:url('mm1.jpg') no-repeat;background-size:cover">cover:크기를 맞게 설정</div>
+	 <div class="box" style="background:url('mm2.jpg') no-repeat;background-size:contain">contain</div>
+	 <div class="box" style="background:url('mm3.jpg') no-repeat;background-size:100% 100%">50%</div>
+	 
+	 <!-- 
+	 		지정한 크기 => cover / width:100% height: 100%
+	  -->
+	  <h2>background-attachment:이미지 고정 여부</h2>
+	  <div class="box" style="height:200px; overflow:auto;background: url('mm1.jpg') no-repeat center fixed; ">
+	  background-attachment<br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  <br><br><br><br>
+	  스크롤
+	  </div><!-- 
+	  		-----------------
+	  				| margin
+	  		-----------------
+	  		     border
+	  		-----------------
+	  			padding
+	  		-----------------
+	  			content
+	  		-----------------
+	  
+	   -->
+	  <h2>background-clip</h2>
+	  <div class="box" style="border:10px dotted black;padding:20px;background:lightgreen;background-clip:border-box;">border-box</div>
+	  <div class="box" style="border:10px dotted black;padding:20px;background:lightgreen;background-clip:padding-box;">padding-box</div>
+	  <div class="box" style="border:10px dotted black;padding:20px;background:lightgreen;background-clip:content-box;">content-box</div>
+	  
+	  <h2>background-origin</h2>
+	  <div class="box" style="border:10px solid black;padding:20px;background:url('mm1.jpg') no-repeat;background-origin:border-box">1</div>
+	  <div class="box" style="border:10px solid black;padding:20px;background:url('mm1.jpg') no-repeat;background-origin:padding-box">2</div>
+	  <div class="box" style="border:10px solid black;padding:20px;background:url('mm1.jpg') no-repeat;background-origin:content-box">3</div>
+	  
+	  <h2>background: 단축속성</h2>
+	  <div class="box" style="background:url('mm1.jpg') no-repeat center/cover;">단축속성</div>
+</body>
+</html>

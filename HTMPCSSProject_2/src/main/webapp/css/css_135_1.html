@@ -1,0 +1,43 @@
+<!-- 
+		속성 선택자
+		태그[속성=값] 같은 값이면
+		태그[속성*=값] 포함된 값
+		태그[속성^=값] 시작 문자
+		태그[속성$=값] 끝 문자
+		
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+img {
+	width : 200px;
+	height : 300px;
+	
+}
+img[src$='jpg']{
+	border:5px red solid; 
+}
+
+img[src$='png']{
+	border:5px green dotted;
+}
+img[src$='gif']{
+	border:5px blue dashed;
+}
+img[src*='mm2']{
+	opacity:0.3;
+}
+</style>
+</head>
+<body>
+	<img src="mm1.jpg">
+	<img src="m2.png">
+	<img src="jerry.gif">
+	<img src="mm2.jpg">
+	<img src="mm3.jpg">
+</body>
+</html>
