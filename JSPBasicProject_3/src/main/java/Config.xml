@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  <!-- 
+  <!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  dtd = XML의 태그와 속성을 정의하고 있는 파일
+	
+	
+	
+	ConnectioPool은 웹에서만 사용
+	JSP/Servlet
+	   |
+	   MyBatis(Config.xml)
+	   |
+	  Mapper(mapper.xml을 로드)
+	   |
+	  Connection Pool
+	   |
+	  SQL실행 = 결과값을 VO로 매핑
+	   |	  ================== resultType
+	  JSP로 전송
+	  === 화면 출력용
+	  
+	  단점 
+	  	SELECT name,address,phone,NVL(comm,'0') as comm
+	  		 =====================
+	  		 vo.setName(rs.getString("name"))
+	  		 vo.setAddress(rs.getString("address"))
+	  
+   -->
+<configuration>
+	<!-- VO 등록 -->
+	<typeAliases >
+		<typeAlias type="com.sist.vo.FoodVO" alias="FoodVO"/>
+	</typeAliases>
+	<!-- 환경 설정 -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+				<property name="username" value="hr"/>
+				<property name="password" value="happy"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- Mapper등록 -->
+	<mappers>
+		<mapper resource="com/sist/dao/food-mapper.xml"/>	
+	</mappers>
+</configuration>
