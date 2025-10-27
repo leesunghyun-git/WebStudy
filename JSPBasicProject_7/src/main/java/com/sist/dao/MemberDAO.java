@@ -1,0 +1,41 @@
+package com.sist.dao;
+import java.util.*;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.sist.commons.*;
+import com.sist.vo.*;
+public class MemberDAO {
+	private static SqlSessionFactory ssf;
+	static
+	{
+		ssf=CreateSqlSessionFactory.getSsf();
+	}
+	public static MemberVO memberLogin(String id,String pwd)
+	{
+		MemberVO vo=new MemberVO();
+		SqlSession session=ssf.openSession();
+		int count=session.selectOne("memberIdCount",id);
+		if(count==0)
+		{
+			vo.setMsg("NOID");
+		}
+		else
+		{
+			MemberVO dbVO=session.selectOne("memberGetPassword",id);
+			if(pwd.equals(dbVO.getPwd()))
+			{
+				vo.setMsg("OK");
+				vo.setId(dbVO.getId());
+				vo.setName(dbVO.getName());
+			}
+			else
+			{
+				vo.setMsg("NOPWD");
+			}
+		}
+		session.close();
+		return vo;
+	}
+}
