@@ -138,7 +138,8 @@
 
       
       
-      <Context docBase="JSPFrontProject_5" path="/JSPFrontProject_5" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_5"/><Context docBase="JSPFrontProject_3" path="/JSPFrontProject_3" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_3"/><Context docBase="JSPFrontProject_6" path="/JSPFrontProject_6" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_6"/><Context docBase="JSPFrontProject_7" path="/JSPFrontProject_7" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_7"/><Context docBase="JSPFrontProject_8" path="/JSPFrontProject_8" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_8"/></Host>
+      <Context docBase="JSPLastProject" path="/JSPLastProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPLastProject"/><Context docBase="SolMate_temp" path="/SolMate_temp" reloadable="true" source="org.eclipse.jst.jee.server:SolMate_temp"/><Context docBase="SolMate" path="/SolMate" reloadable="true" source="org.eclipse.jst.jee.server:SolMate"/><Context docBase="JSPMiddleProject_1" path="/JSPMiddleProject_1" reloadable="true" source="org.eclipse.jst.jee.server:JSPMiddleProject_1"/><Context docBase="temp_1" path="/temp_1" reloadable="true" source="org.eclipse.jst.jee.server:temp_1"/></Host>
+      
     </Engine>
   </Service>
 </Server>

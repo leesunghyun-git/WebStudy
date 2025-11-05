@@ -23,7 +23,7 @@ import org.w3c.dom.NodeList;
 /**
  * Servlet implementation class DispatcherServlet
  */
-@WebServlet("*.do")
+
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private List<String> cList=new ArrayList<String>();
@@ -106,7 +106,7 @@ public class DispatcherServlet extends HttpServlet {
 					}
 					else
 					{
-						if(jsp.startsWith("redirct:"))
+						if(jsp.startsWith("redirect:"))
 						{
 							String s=jsp.substring(jsp.indexOf(":")+1);
 							response.sendRedirect(s);

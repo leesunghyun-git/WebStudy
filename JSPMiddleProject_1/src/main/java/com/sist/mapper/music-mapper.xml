@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.music-mapper">
+	<select id="musicListData" resultType="MusicVO" parameterType="hashMap">
+		SELECT no,cno,rank,title,singer,album,poster,state,idcrement,num
+		FROM (SELECT no,cno,rank,title,singer,album,poster,state,idcrement,rownum as num
+		FROM (SELECT no,cno,rank,title,singer,album,poster,state,idcrement
+		FROM genie_music 
+		WHERE cno=#{cno}
+		ORDER BY no ASC))
+		WHERE num between #{start} AND #{end}
+	</select>
+	<select id="musictotalpage" resultType="int" parameterType="int">
+		SELECT CEIL(COUNT(*)/20.0)
+		FROM genie_music
+		WHERE cno=#{cno}
+	</select>
+	<select id="musicDetailData" resultType="MusicVO" parameterType="int">
+		SELECT *
+		FROM genie_music
+		WHERE no=#{no}
+	</select>
+	<update id="hitIncrese" parameterType="int">
+		UPDATE genie_music SET
+		hit=hit+1
+		WHERE no=#{no}
+	</update>
+	<update id="likeIncrese" parameterType="int">
+		UPDATE genie_music SET
+		likecount=likecount+1
+		WHERE no=#{no}
+	</update>
+	<select id="musicFindData" resultType="MusicVO" parameterType="hashMap">
+		SELECT no,rank,title,singer,album,poster,state,idcrement
+		FROM genie_music
+		WHERE cno != 1 AND REGEXP_LIKE (${column},#{fd},'i')
+	</select>
+</mapper>
